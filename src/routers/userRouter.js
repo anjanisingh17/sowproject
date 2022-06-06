@@ -90,7 +90,6 @@ router.delete('/user_delete/:id',async(req,res)=>{
 })
 
 //Register a projectSpace
-//create user
 router.post('/project_register',async(req,res)=>{
     
     try{
@@ -105,6 +104,58 @@ router.post('/project_register',async(req,res)=>{
         res.status(400).send(err);
     } 
 })
+
+//Read project data in detail
+router.get('/project_read/:id',async(req,res)=>{
+
+    try{
+       const _id = req.params.id;
+       const projectData = await ProjectSpace.findByIdAndDelete(_id);
+       if(!projectData){
+          res.status(400).send('No data found for this id');  
+       }else{
+          res.status(200).send(projectData);
+       }
+
+    }catch(err){
+        res.status(500).send(err);
+    }
+});
+
+
+//update the project details by using id
+router.patch('/project_update/:id',async(req,res)=>{
+
+    try{
+       const _id = req.params.id;
+    
+    //update data using findByIdAndUpdate method
+       const projectData = await ProjectSpace.findByIdAndUpdate(_id,req.body);
+
+       res.status(201).send('your record is updated successfully'); 
+    }catch(err){
+        res.status(500).send(err);
+    }
+});
+
+
+// Delete the project details record by id
+router.delete('/project_delete/:id',async(req,res)=>{
+
+    try{
+       const _id = req.params.id;
+       const projectData = await ProjectSpace.findByIdAndDelete(_id);
+       if(!projectData){
+          res.status(400).send('No data found for this id');  
+       }else{
+          res.status(200).send('Your record is deleted successfully');
+       }
+
+    }catch(err){
+        res.status(500).send(err);
+    }
+});
+
 
 
 
