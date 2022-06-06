@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const conn = require('./db/conn');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const user_router = require('./routers/userRouter');
@@ -27,6 +27,6 @@ app.get('/',(req,res)=>{
 // createToken();
 
 
-app.listen(8000,()=>{
+app.listen(8080,()=>{
     console.log('App is listening on port 8080');
 });

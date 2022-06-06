@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/userModel');
 const ProjectSpace = require('../models/projectSpaceModel');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { cookie } = require('express/lib/response');
 
@@ -17,7 +17,7 @@ router.post('/user_register',async(req,res)=>{
             //Getting webtoken from middleware
             const token =  await user.generateWebToken();
 
-            res.cookiew('jwt',token,{
+            res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 30000),
                 httpOnly: true,
                 // secure: true
