@@ -14,7 +14,7 @@ app.use(user_router);
 
 
 app.get('/',(req,res)=>{
-    res.send('Welcome to Index page')    
+    res.send('Welcome to index page')    
 });
 
 
