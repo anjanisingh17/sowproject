@@ -10,7 +10,6 @@
   "author": "Anjani Singh",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",

@@ -19,7 +19,6 @@ app.get('/',(req,res)=>{
 
 
 // const createToken = async ()=>{
-
 //     const token = jwt.sign({_id:'123456'},"Thisisjwttokenforeveryindividualuserusingjsonwebtoken");
 //     console.log(token);
 // }
@@ -28,5 +27,5 @@ app.get('/',(req,res)=>{
 
 
 app.listen(8080,()=>{
-    console.log('App is listening on the port 8080');
+    console.log('App is listening on  port 8080');
 });
